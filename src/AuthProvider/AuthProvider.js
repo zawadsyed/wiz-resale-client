@@ -30,7 +30,7 @@ const AuthProvider = ({ children }) => {
     const logOut = () => {
         return signOut(auth);
     }
-    // For creating user profile photo
+    // For creating user profile Name & photo
     const updateUserProfile = profile => {
         return updateProfile(auth.currentUser, profile);
     }

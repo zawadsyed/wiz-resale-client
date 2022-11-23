@@ -1,9 +1,11 @@
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
+import router from './Routes/routes';
 
 function App() {
   return (
     <div className="App">
-      <h1 className='text-9xl flex justify-end'>tailwindcss implemented</h1>
+      <RouterProvider router={router}></RouterProvider>
 
     </div>
   );

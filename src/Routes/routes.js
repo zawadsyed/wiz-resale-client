@@ -1,4 +1,5 @@
-import Home from "../Home/Home";
+import Home from "../Pages/Home/Home";
+
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../layouts/Main/Main");

@@ -1,0 +1,17 @@
+[
+    {
+        "category_id": "01",
+        "category_title": "MacBook",
+        "img": "https://i.ibb.co/s2H1SSZ/macBook.jpg"
+    },
+    {
+        "category_id": "02",
+        "category_title": "HP",
+        "img": "https://i.ibb.co/GV606SM/HP.jpg"
+    },
+    {
+        "category_id": "03",
+        "category_title": "Asus",
+        "img": "https://i.ibb.co/WGrGfYR/asus.jpg"
+    }
+]

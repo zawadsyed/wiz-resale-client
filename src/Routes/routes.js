@@ -1,5 +1,6 @@
 import Home from "../Pages/Home/Home";
 import Products from "../Pages/Products/Products";
+import SignUp from "../Pages/SignUp/SignUp"
 
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
                 path: '/categories/:name',
                 loader: ({ params }) => fetch(`http://localhost:5000/categories/${params.name}`),
                 element: <Products></Products>
+            },
+            {
+                path: '/signup',
+                element: <SignUp></SignUp>
             }
         ]
     }

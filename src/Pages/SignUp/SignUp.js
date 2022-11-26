@@ -37,7 +37,7 @@ const SignUp = () => {
             })
             .catch(err => console.error(err))
         const saveUserToDatabase = (email, name, role) => {
-            const user = { email, name, role };
+            const user = { email, name, role, isVerified: false };
             fetch('http://localhost:5000/users', {
                 method: 'POST',
                 headers: {

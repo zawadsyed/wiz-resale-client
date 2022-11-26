@@ -1,4 +1,7 @@
 import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
+import AllBuyers from "../Pages/Dashboard/AllBuyers/AllBuyers";
+import AllSellers from "../Pages/Dashboard/AllSellers/AllSellers";
+import ReportedItems from "../Pages/Dashboard/ReportedItems/ReportedItems";
 import Home from "../Pages/Home/Home";
 import Products from "../Pages/Products/Products";
 import SignUp from "../Pages/SignUp/SignUp"
@@ -33,8 +36,17 @@ const router = createBrowserRouter([
         element: <DashboardLayout></DashboardLayout>,
         children: [
             {
-                path: '/dashboard'
-            }
+                path: '/dashboard',
+                element: <AllSellers></AllSellers>
+            },
+            {
+                path: '/dashboard',
+                element: <AllBuyers></AllBuyers>
+            },
+            {
+                path: '/dashboard',
+                element: <ReportedItems></ReportedItems>
+            },
         ]
     }
 ])

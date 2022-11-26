@@ -9,7 +9,7 @@ const CategoryCard = ({ category }) => {
             <img className='rounded-lg' src={img} alt="car!" />
             <div className="card-body">
                 <h2 className="text-center text-2xl font-semibold">{category_title}</h2>
-                <Link to={`/categores/${category_title}`}>
+                <Link to={`/categories/${category_title}`}>
                     <button className="btn btn-primary w-full">Get Now</button>
                 </Link>
             </div>

@@ -1,17 +1,80 @@
 [
     {
-        "category_id": "01",
-        "category_title": "MacBook",
-        "img": "https://i.ibb.co/s2H1SSZ/macBook.jpg"
+        "category_name": "Macbook",
+        "img": "https://i.ibb.co/qjRJLfG/mac-Book-Pro.jpg",
+        "product_name": "Apple MacBook Pro 13.3-Inch",
+        "condition": "Excellent",
+        "location": "Sylhet",
+        "price_origin": "142,000",
+        "price_resale": "85,000",
+        "yearsUsed": "1",
+        "date": "11/18/2022, 4:50:06 PM",
+        "sellerName": "Masum",
+        "isVerified": "false"
     },
     {
-        "category_id": "02",
-        "category_title": "HP",
-        "img": "https://i.ibb.co/GV606SM/HP.jpg"
+        "category_name": "Asus",
+        "img": "https://i.ibb.co/gr5mRZ7/Asus-P1511-CMA-Intel-Celeron-N4020.jpg",
+        "product_name": "Asus P1511CMA Intel Celeron N4020",
+        "condition": "Good",
+        "location": "Sylhet",
+        "price_origin": "41,500",
+        "price_resale": "25,000",
+        "yearsUsed": "1",
+        "date": "11/18/2022, 4:50:06 PM",
+        "sellerName": "Nasim",
+        "isVerified": "false"
     },
     {
-        "category_id": "03",
-        "category_title": "Asus",
-        "img": "https://i.ibb.co/WGrGfYR/asus.jpg"
+        "category_name": "Asus",
+        "img": "https://i.ibb.co/7nDbzh4/Asus-Vivobook-X515-MA-Celeron-N4020.jpg",
+        "product_name": "Asus Vivobook X515MA Celeron N4020",
+        "condition": "Fair",
+        "location": "Chittagong",
+        "price_origin": "43,500",
+        "price_resale": "25,000",
+        "yearsUsed": "1",
+        "date": "11/23/2022, 4:50:06 PM",
+        "sellerName": "Iftee",
+        "isVerified": "false"
+    },
+    {
+        "category_name": "HP",
+        "img": "https://i.ibb.co/pwRcNhZ/HP-15s-fq2644-TU-Core-i3-11th-Gen-15-6-HD-Laptop.jpg",
+        "product_name": "HP 15s-fq2644TU Core i3 11th Gen 15.6",
+        "condition": "Good",
+        "location": "Dhaka",
+        "price_origin": "61,500",
+        "price_resale": "30,000",
+        "yearsUsed": "2",
+        "date": "11/24/2022, 4:50:06 PM",
+        "sellerName": "Farhan",
+        "isVerified": "false"
+    },
+    {
+        "category_name": "HP",
+        "img": "https://i.ibb.co/vsc1fXr/HP-15s-du1116-TU-Pentium-Silver-N5030.jpg",
+        "product_name": "HP 15s-du1116TU Pentium Silver N5030",
+        "condition": "Fair",
+        "location": "Sylhet",
+        "price_origin": "39,900",
+        "price_resale": "20,000",
+        "yearsUsed": "2",
+        "date": "11/21/2022, 4:50:06 PM",
+        "sellerName": "Muhsin Ahmed",
+        "isVerified": "false"
+    },
+    {
+        "category_name": "Macbook",
+        "img": "https://i.ibb.co/TBC55nM/mac-Book-Air.jpg",
+        "product_name": "Apple MacBook Air 13.3-Inch",
+        "condition": "Good",
+        "location": "Sylhet",
+        "price_origin": "115,900",
+        "price_resale": "80,000",
+        "yearsUsed": "1",
+        "date": "11/25/2022, 4:50:06 PM",
+        "sellerName": "Syed Zawad",
+        "isVerified": "false"
     }
 ]

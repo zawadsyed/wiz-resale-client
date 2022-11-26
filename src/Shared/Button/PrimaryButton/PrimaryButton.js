@@ -1,8 +1,8 @@
 import React from 'react';
 
-const PrimaryButton = () => {
+const PrimaryButton = ({ children }) => {
     return (
-        <button className="btn btn-primary rounded-full capitalize text-lg px-6">Get Started</button>
+        <button className="btn btn-primary rounded-full capitalize text-lg px-6">{children}</button>
     );
 };
 

@@ -1,11 +1,17 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import User from './User';
 
 const AllSellers = () => {
+    const { user } = useContext(AuthContext);
     const { data: sellers = [], refetch } = useQuery({
-        queryKey: ['users', 'sellers'],
-        queryFn: () => fetch("http://localhost:5000/users?role=seller")
+        queryKey: ['sellers'],
+        queryFn: () => fetch(`http://localhost:5000/users?role=seller`, {
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
             .then(res => res.json())
     });
     return (

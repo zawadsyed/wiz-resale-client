@@ -9,22 +9,18 @@ const User = ({ user, i, refetch }) => {
         refetch();
         setSellerVerfied(true);
     }
-
-    if (user?.role === "Seller") {
-        return (
-            <tr>
-                <th>{i + 1}</th>
-                <td>{email}</td>
-                <td>{name}</td>
-                {!sellerVerified ?
-                    <td><button onClick={() => verifySeller(user)} className='badge badge-primary'>Verify</button></td>
-                    :
-                    <td>Verified</td>
-                }
-            </tr>
-        )
-    }
-    console.log(email, name, role)
+    return (
+        <tr>
+            <th><button className='btn btn-accent'>Delete</button></th>
+            <td>{email}</td>
+            <td>{name}</td>
+            {!sellerVerified ?
+                <td><button onClick={() => verifySeller(user)} className='badge badge-primary'>Verify</button></td>
+                :
+                <td>Verified</td>
+            }
+        </tr>
+    )
 };
 
 export default User;

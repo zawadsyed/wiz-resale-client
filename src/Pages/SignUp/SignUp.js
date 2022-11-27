@@ -36,6 +36,7 @@ const SignUp = () => {
 
             })
             .catch(err => console.error(err))
+
         const saveUserToDatabase = (email, name, role) => {
             const user = { email, name, role, isVerified: false };
             fetch('http://localhost:5000/users', {
@@ -48,8 +49,18 @@ const SignUp = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.acknowledged) {
-                        navigate('/')
+                        getToken(email)
+                    }
+                })
+        }
 
+        const getToken = email => {
+            fetch(`http://localhost:5000/jwt?email=${email}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.accessToken) {
+                        localStorage.setItem('accessToken', data.accessToken)
+                        navigate('/')
                     }
                 })
         }
@@ -86,8 +97,8 @@ const SignUp = () => {
                         <select
                             {...register('role')}
                             className="select input-bordered w-full max-w-xs">
-                            <option value="Buyer">Buyer</option>
-                            <option value="Seller">Seller</option>
+                            <option value="buyer">Buyer</option>
+                            <option value="seller">Seller</option>
                         </select>
                         {errors.password && <p className='text-red-400'>{errors.password.message}</p>}
                     </div>

@@ -3,9 +3,9 @@ import React from 'react';
 import User from './User';
 
 const AllSellers = () => {
-    const { data: users = [], refetch } = useQuery({
-        queryKey: ['users'],
-        queryFn: () => fetch(`http://localhost:5000/users`)
+    const { data: sellers = [], refetch } = useQuery({
+        queryKey: ['users', 'sellers'],
+        queryFn: () => fetch("http://localhost:5000/users?role=seller")
             .then(res => res.json())
     });
     return (
@@ -14,14 +14,14 @@ const AllSellers = () => {
                 <table className="table table-zebra w-full">
                     <thead>
                         <tr>
-                            <th>Index</th>
+                            <th>Delete</th>
                             <th>Email</th>
                             <th>Name</th>
                             <th>Verify</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map((user, i) => <User key={user?._id} user={user} i={i} refetch={refetch}></User>)}
+                        {sellers.map((seller, i) => <User key={seller?._id} user={seller} i={i} refetch={refetch}></User>)}
                     </tbody>
                 </table>
             </div>

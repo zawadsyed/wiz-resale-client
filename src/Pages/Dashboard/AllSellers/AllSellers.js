@@ -4,7 +4,6 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import User from './User';
 
 const AllSellers = () => {
-    const { user } = useContext(AuthContext);
     const { data: sellers = [], refetch } = useQuery({
         queryKey: ['sellers'],
         queryFn: () => fetch(`http://localhost:5000/users?role=seller`, {

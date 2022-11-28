@@ -2,6 +2,7 @@ import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
 import AddAProduct from "../Pages/Dashboard/AddAProduct/AddAProduct";
 import AllBuyers from "../Pages/Dashboard/AllBuyers/AllBuyers";
 import AllSellers from "../Pages/Dashboard/AllSellers/AllSellers";
+import MyProducts from "../Pages/Dashboard/MyProducts/MyProducts";
 import ReportedItems from "../Pages/Dashboard/ReportedItems/ReportedItems";
 import Home from "../Pages/Home/Home";
 import Products from "../Pages/Products/Products";
@@ -62,7 +63,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/my-products',
-                element: <SellerRoute><AddAProduct></AddAProduct></SellerRoute>
+                element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
             },
         ]
     }

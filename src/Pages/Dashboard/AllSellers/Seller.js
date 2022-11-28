@@ -4,8 +4,7 @@ import { useState } from 'react';
 
 
 const Seller = ({ seller, i, refetch, handleDeleteSeller }) => {
-    const { email, name, isVerified } = seller;
-    const [sellerVerified, setSellerVerfied] = useState(seller?.isVerified);
+    const { email, name } = seller;
 
 
     // const verifySeller = seller => {

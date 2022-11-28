@@ -2,6 +2,7 @@ import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
 import AddAProduct from "../Pages/Dashboard/AddAProduct/AddAProduct";
 import AllBuyers from "../Pages/Dashboard/AllBuyers/AllBuyers";
 import AllSellers from "../Pages/Dashboard/AllSellers/AllSellers";
+import Blog from "../Pages/Dashboard/Blog/Blog";
 import MyOrders from "../Pages/Dashboard/My Orders/MyOrders";
 import MyProducts from "../Pages/Dashboard/MyProducts/MyProducts";
 import ReportedItems from "../Pages/Dashboard/ReportedItems/ReportedItems";
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
             {
                 path: '/signin',
                 element: <SignIn></SignIn>
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             },
         ]
     },

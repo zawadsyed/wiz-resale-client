@@ -9,7 +9,7 @@ const Hero = () => {
             <div className='hero-bg py-16'>
                 <div>
                     <div className="hero-content mx-auto flex-col lg:flex-row-reverse lg:justify-between">
-                        <img src={heroImg} alt='dentist' className="max-w-sm" />
+                        <img src={heroImg} alt='Laptops' className="max-w-sm" />
                         <div className='hero-contents flex flex-col items-start'>
                             <h1 className="text-5xl font-extrabold leading-tight text-left">Wiz Resale is an exporter of refurbished
                                 and used laptop <br /> in bulk quantities.</h1>

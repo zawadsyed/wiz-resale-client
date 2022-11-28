@@ -5,7 +5,7 @@ const MyProduct = ({ product, handleDeleteProduct }) => {
 
     return (
         <tr>
-            <th><button onClick={() => handleDeleteProduct(product._id)} className='btn btn-accent'>Delete</button></th>
+            <th><button onClick={() => handleDeleteProduct(product)} className='btn btn-accent'>Delete</button></th>
             <td>{product_name}</td>
             <td>{price_origin}</td>
             <td>{price_resale}</td>

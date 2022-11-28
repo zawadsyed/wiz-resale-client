@@ -18,10 +18,10 @@ const MyProducts = () => {
             return data;
         }
     });
-    const handleDeleteProduct = id => {
-        const confirmation = window.confirm('Are you sure to delete the Seller??');
+    const handleDeleteProduct = product => {
+        const confirmation = window.confirm('Are you sure to delete the Product??');
         if (confirmation) {
-            fetch(`http://localhost:5000/my-products/${id}`, {
+            fetch(`http://localhost:5000/my-products/${product._id}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -57,7 +57,7 @@ const MyProducts = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {myProducts.map((product, i) => <MyProduct key={product?._id} product={product} i={i} handleDeleteProduct={handleDeleteProduct}></MyProduct>)}
+                        {myProducts.map((product, i) => <MyProduct key={product?._id} product={product} handleDeleteProduct={handleDeleteProduct}></MyProduct>)}
                     </tbody>
                 </table>
             </div>

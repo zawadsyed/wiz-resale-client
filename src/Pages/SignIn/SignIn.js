@@ -2,19 +2,16 @@ import { useForm } from "react-hook-form";
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
-import { GoogleAuthProvider } from "firebase/auth";
 import useJWTToken from "../../hooks/useJWTToken";
 
 
 const SignIn = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { logIn, providerSignIn } = useContext(AuthContext);
+    const { logIn } = useContext(AuthContext);
     const [signInError, setSignInError] = useState('');
     const [signInEmail, setSignInEmail] = useState('');
     const [token] = useJWTToken(signInEmail);
-    // const provider = new GoogleAuthProvider();
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
@@ -37,36 +34,6 @@ const SignIn = () => {
                 setSignInError(`${err.message}, Please try again`)
             })
     }
-
-    // const handleGoogleSignIn = () => {
-    //     providerSignIn(provider)
-    //         .then(result => {
-    //             const user = result.user;
-    //             console.log(user);
-    //             saveUserToDatabase(user?.email, user?.displayName)
-
-    //         })
-    //         .catch(err => {
-    //             console.error(err)
-    //             setSignInError(`${err.message}, Please try again`);
-    //         })
-    //     const saveUserToDatabase = (email, name) => {
-    //         const user = { email, name, role: "buyer", isVerified: false };
-    //         fetch('http://localhost:5000/users', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'content-type': 'application/json'
-    //             },
-    //             body: JSON.stringify(user)
-    //         })
-    //             .then(res => res.json())
-    //             .then(data => {
-    //                 if (data.acknowledged) {
-    //                     setSignInEmail(email);
-    //                 }
-    //             })
-    //     }
-    // }
 
     return (
         <div className='flex justify-center items-center'>
@@ -91,9 +58,8 @@ const SignIn = () => {
                     <input className='btn btn-accent w-full mt-4' value="Sign In" type="submit" />
                     {signInError && <p className='text-red-400'>{signInError}</p>}
                 </form>
-                <p>New Here??<Link className='text-accent' to="/signup">Please Sign Up</Link></p>
-                <div className="divider">OR</div>
-                {/* <button onClick={handleGoogleSignIn} className='btn btn-outline w-full'><FcGoogle className='mr-2'></FcGoogle></button> */}
+                <p>New Here??<Link className='text-primary' to="/signup">Please Sign Up</Link></p>
+
 
             </div>
         </div>

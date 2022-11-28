@@ -3,7 +3,7 @@ import { HiLocationMarker } from "react-icons/hi";
 import PrimaryButton from '../../../Shared/Button/PrimaryButton/PrimaryButton';
 
 const ProductCard = ({ product }) => {
-    const { product_name, condition, location, price_origin, price_resale, yearsUsed, date, sellerName, img } = product;
+    const { product_name, condition, location, price_origin, price_resale, yearsUsed, date, seller_name, img } = product;
     const handleBooking = () => {
 
     }
@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
                 </div>
                 <div className="">Used: {yearsUsed} Year</div>
                 <div className="">Posted Date: {date}</div>
-                <div className="">Seller Name: {sellerName}</div>
+                <div className="">Seller Name: {seller_name}</div>
                 <label htmlFor="booking-modal" className="btn btn-primary rounded-full capitalize text-lg px-6">Book Product</label>
             </div>
         </div>

@@ -1,11 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 
-const User = ({ user, i, refetch }) => {
-    const { email, name, role, isVerified } = user;
-    const [sellerVerified, setSellerVerfied] = useState(user?.isVerified);
+const Seller = ({ seller, i, refetch }) => {
+    const { email, name, role, isVerified } = seller;
+    const [sellerVerified, setSellerVerfied] = useState(seller?.isVerified);
 
-    const verifySeller = user => {
+    const verifySeller = seller => {
         refetch();
         setSellerVerfied(true);
     }
@@ -15,7 +15,7 @@ const User = ({ user, i, refetch }) => {
             <td>{email}</td>
             <td>{name}</td>
             {!sellerVerified ?
-                <td><button onClick={() => verifySeller(user)} className='badge badge-primary'>Verify</button></td>
+                <td><button onClick={() => verifySeller(seller)} className='badge badge-primary'>Verify</button></td>
                 :
                 <td>Verified</td>
             }
@@ -23,4 +23,4 @@ const User = ({ user, i, refetch }) => {
     )
 };
 
-export default User;
+export default Seller;

@@ -32,7 +32,7 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="flex gap-6 rounded-full p-0">
                         <li className='rounded-full'><Link to="/blog">Blog</Link></li>
-                        <li className='rounded-full'><Link to="/dashboard/allsellers">Dashboard</Link></li>
+                        <li className='rounded-full'><Link to="/dashboard">Dashboard</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">

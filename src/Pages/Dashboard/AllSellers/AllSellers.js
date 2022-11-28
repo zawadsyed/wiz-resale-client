@@ -1,7 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
-import { AuthContext } from '../../../AuthProvider/AuthProvider';
-import User from './User';
+import Seller from './Seller';
 
 const AllSellers = () => {
     const { data: sellers = [], refetch } = useQuery({
@@ -26,7 +24,7 @@ const AllSellers = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {sellers.map((seller, i) => <User key={seller?._id} user={seller} i={i} refetch={refetch}></User>)}
+                        {sellers.map((seller, i) => <Seller key={seller?._id} seller={seller} i={i} refetch={refetch}></Seller>)}
                     </tbody>
                 </table>
             </div>

@@ -9,7 +9,7 @@ const useSeller = email => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
-                    setIsseller(data.isAdmin);
+                    setIsseller(data.isSeller);
                     setisSellerLoading(false);
                 })
         }

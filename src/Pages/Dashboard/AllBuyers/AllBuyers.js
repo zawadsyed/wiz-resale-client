@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import Buyer from './Buyer';
+import Swal from 'sweetalert2';
 
 const AllBuyers = () => {
     const { data: buyers = [], refetch } = useQuery({
@@ -11,6 +12,29 @@ const AllBuyers = () => {
         })
             .then(res => res.json())
     });
+    const handleDeleteBuyer = id => {
+        const confirmation = window.confirm('Are you sure to delete the Seller??');
+        if (confirmation) {
+            fetch(`http://localhost:5000/users/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        refetch();
+                        Swal.fire({
+                            icon: 'success',
+                            title: `You have deleted a Seller successfully`,
+                            timer: 1500
+                        })
+                    }
+                })
+        }
+
+    }
     return (
         <div>
             <div className="overflow-x-auto">
@@ -23,7 +47,7 @@ const AllBuyers = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {buyers.map((buyer, i) => <Buyer key={buyer?._id} buyer={buyer} i={i} refetch={refetch}></Buyer>)}
+                        {buyers.map((buyer, i) => <Buyer key={buyer?._id} buyer={buyer} i={i} handleDeleteBuyer={handleDeleteBuyer}></Buyer>)}
                     </tbody>
                 </table>
             </div>

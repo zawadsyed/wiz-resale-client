@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import MyProduct from './MyProduct';
+import Swal from 'sweetalert2';
+
 const MyProducts = () => {
     const { user } = useContext(AuthContext);
-    const { data: myProducts = [] } = useQuery({
+    const { data: myProducts = [], refetch } = useQuery({
         queryKey: ['my-products'],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/my-products?email=${user?.email}`, {
@@ -16,7 +18,29 @@ const MyProducts = () => {
             return data;
         }
     });
-    console.log(myProducts)
+    const handleDeleteProduct = id => {
+        const confirmation = window.confirm('Are you sure to delete the Seller??');
+        if (confirmation) {
+            fetch(`http://localhost:5000/my-products/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        refetch();
+                        Swal.fire({
+                            icon: 'success',
+                            title: `You have deleted a Product successfully`,
+                            timer: 1500
+                        })
+                    }
+                })
+        }
+
+    }
 
     return (
         <div>
@@ -33,7 +57,7 @@ const MyProducts = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {myProducts.map((product, i) => <MyProduct key={product?._id} product={product} i={i}></MyProduct>)}
+                        {myProducts.map((product, i) => <MyProduct key={product?._id} product={product} i={i} handleDeleteProduct={handleDeleteProduct}></MyProduct>)}
                     </tbody>
                 </table>
             </div>

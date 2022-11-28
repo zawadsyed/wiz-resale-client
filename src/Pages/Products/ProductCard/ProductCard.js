@@ -1,6 +1,5 @@
 import React from 'react';
 import { HiLocationMarker } from "react-icons/hi";
-import PrimaryButton from '../../../Shared/Button/PrimaryButton/PrimaryButton';
 
 const ProductCard = ({ product }) => {
     const { product_name, condition, location, price_origin, price_resale, yearsUsed, date, seller_name, img } = product;

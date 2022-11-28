@@ -1,11 +1,11 @@
 import React from 'react';
 
-const MyProduct = ({ product, i }) => {
+const MyProduct = ({ product, handleDeleteProduct }) => {
     const { product_name, price_origin, price_resale, condition } = product;
 
     return (
         <tr>
-            <th><button className='btn btn-accent'>Delete</button></th>
+            <th><button onClick={() => handleDeleteProduct(product._id)} className='btn btn-accent'>Delete</button></th>
             <td>{product_name}</td>
             <td>{price_origin}</td>
             <td>{price_resale}</td>

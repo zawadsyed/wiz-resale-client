@@ -6,6 +6,7 @@ import Blog from "../Pages/Dashboard/Blog/Blog";
 import MyOrders from "../Pages/Dashboard/My Orders/MyOrders";
 import MyProducts from "../Pages/Dashboard/MyProducts/MyProducts";
 import ReportedItems from "../Pages/Dashboard/ReportedItems/ReportedItems";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import Products from "../Pages/Products/Products";
 import SignIn from "../Pages/SignIn/SignIn";
@@ -22,7 +23,7 @@ const { default: Main } = require("../layouts/Main/Main");
 const router = createBrowserRouter([
     {
         path: '/',
-        errorElement: <h1>404 Error</h1>,
+        errorElement: <ErrorPage></ErrorPage>,
         element: <Main></Main>,
         children: [
             {
@@ -50,6 +51,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
+        errorElement: <ErrorPage></ErrorPage>,
         element: <DashboardLayout></DashboardLayout>,
         children: [
             {

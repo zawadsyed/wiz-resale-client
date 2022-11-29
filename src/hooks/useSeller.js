@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 const useSeller = email => {
     const [isSeller, setIsseller] = useState(false);
-    const [isSellerLoading, setisSellerLoading] = useState(true);
+    const [isSellerLoading, setIsSellerLoading] = useState(true);
     useEffect(() => {
         if (email) {
             fetch(`https://wiz-resale-server.vercel.app/users/seller/${email}`)
@@ -10,7 +10,7 @@ const useSeller = email => {
                 .then(data => {
                     console.log(data);
                     setIsseller(data.isSeller);
-                    setisSellerLoading(false);
+                    setIsSellerLoading(false);
                 })
         }
     }, [email])

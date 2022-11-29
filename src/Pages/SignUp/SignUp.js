@@ -50,7 +50,7 @@ const SignUp = () => {
 
         const saveUserToDatabase = (email, name, role) => {
             const user = { email, name, role, isVerified: false };
-            fetch('http://localhost:5000/users', {
+            fetch('https://wiz-resale-server.vercel.app/users', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -80,7 +80,7 @@ const SignUp = () => {
     //         })
     //     const saveUserToDatabase = (email, name) => {
     //         const user = { email, name, role: "buyer", isVerified: false };
-    //         fetch('http://localhost:5000/users', {
+    //         fetch('https://wiz-resale-server.vercel.app/users', {
     //             method: 'POST',
     //             headers: {
     //                 'content-type': 'application/json'

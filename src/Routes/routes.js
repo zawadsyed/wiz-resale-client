@@ -31,7 +31,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/categories/:name',
-                loader: ({ params }) => fetch(`http://localhost:5000/categories/${params.name}`),
+                loader: ({ params }) => fetch(`https://wiz-resale-server.vercel.app/categories/${params.name}`),
                 element: <PrivateRoute><Products></Products></PrivateRoute>
             },
             {

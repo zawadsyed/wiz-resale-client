@@ -9,7 +9,7 @@ const MyProducts = () => {
     const { data: myProducts = [], refetch } = useQuery({
         queryKey: ['my-products'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/my-products?email=${user?.email}`, {
+            const res = await fetch(`https://wiz-resale-server.vercel.app/my-products?email=${user?.email}`, {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -21,7 +21,7 @@ const MyProducts = () => {
     const handleDeleteProduct = product => {
         const confirmation = window.confirm('Are you sure to delete the Product??');
         if (confirmation) {
-            fetch(`http://localhost:5000/my-products/${product._id}`, {
+            fetch(`https://wiz-resale-server.vercel.app/my-products/${product._id}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`

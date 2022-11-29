@@ -1,14 +1,17 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import CategoryCard from './CategoryCard';
+import DotLoader from "react-spinners/DotLoader";
 
 const CategorySection = () => {
-    const { data: categories = [] } = useQuery({
+    const { data: categories, isLoading } = useQuery({
         queryKey: ['categories'],
-        queryFn: () => fetch('http://localhost:5000/categories')
+        queryFn: () => fetch('https://wiz-resale-server.vercel.app/categories')
             .then(res => res.json())
     })
-    console.log(categories)
+    if (isLoading) {
+        return <DotLoader className='mx-auto' color="#d8ab06" />
+    }
     return (
         <div className='max-w-[1320px] mx-auto mt-[100px]'>
             <h1 className='text-3xl mb-[48px]'>Categories</h1>

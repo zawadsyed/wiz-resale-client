@@ -12,7 +12,7 @@ const AddAProduct = () => {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/categorytitle')
+        axios.get('https://wiz-resale-server.vercel.app/categorytitle')
             .then(res => {
                 setCategories(res.data);
             })
@@ -59,7 +59,7 @@ const AddAProduct = () => {
                     }
 
                     // save products information to the database
-                    fetch('http://localhost:5000/products', {
+                    fetch('https://wiz-resale-server.vercel.app/products', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

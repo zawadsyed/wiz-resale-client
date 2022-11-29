@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 const AllBuyers = () => {
     const { data: buyers = [], refetch } = useQuery({
         queryKey: ['buyers'],
-        queryFn: () => fetch(`http://localhost:5000/users?role=buyer`, {
+        queryFn: () => fetch(`https://wiz-resale-server.vercel.app/users?role=buyer`, {
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
             }
@@ -15,7 +15,7 @@ const AllBuyers = () => {
     const handleDeleteBuyer = id => {
         const confirmation = window.confirm('Are you sure to delete the Seller??');
         if (confirmation) {
-            fetch(`http://localhost:5000/users/${id}`, {
+            fetch(`https://wiz-resale-server.vercel.app/users/${id}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`

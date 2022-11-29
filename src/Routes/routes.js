@@ -54,6 +54,10 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage></ErrorPage>,
         element: <DashboardLayout></DashboardLayout>,
         children: [
+             {
+                path: '/dashboard',
+                element: <Dashboard></Dashboard>,
+            },
             {
                 path: '/dashboard/allsellers',
                 element: <AdminRoute><AllSellers></AllSellers></AdminRoute>
@@ -63,7 +67,7 @@ const router = createBrowserRouter([
                 element: <AdminRoute><AllBuyers></AllBuyers></AdminRoute>
             },
             {
-                path: '/dashboard',
+                path: '/dashboard/reported-items',
                 element: <AdminRoute><ReportedItems></ReportedItems></AdminRoute>
             },
             {

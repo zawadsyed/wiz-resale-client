@@ -3,6 +3,7 @@ import AddAProduct from "../Pages/Dashboard/AddAProduct/AddAProduct";
 import AllBuyers from "../Pages/Dashboard/AllBuyers/AllBuyers";
 import AllSellers from "../Pages/Dashboard/AllSellers/AllSellers";
 import Blog from "../Pages/Dashboard/Blog/Blog";
+import Dashboard from "../Pages/Dashboard/Dashboard";
 import MyOrders from "../Pages/Dashboard/My Orders/MyOrders";
 import MyProducts from "../Pages/Dashboard/MyProducts/MyProducts";
 import ReportedItems from "../Pages/Dashboard/ReportedItems/ReportedItems";
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage></ErrorPage>,
         element: <DashboardLayout></DashboardLayout>,
         children: [
+            {
+                path: '/dashboard',
+                element: <Dashboard></Dashboard>,
+            },
             {
                 path: '/dashboard/allsellers',
                 element: <AdminRoute><AllSellers></AllSellers></AdminRoute>

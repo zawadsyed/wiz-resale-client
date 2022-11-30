@@ -8,7 +8,7 @@ const Products = () => {
     console.log(products)
     return (
         <div>
-            <h1>Products</h1>
+            <h1 className='mb-[48px] text-3xl mt-[64px]'>Products</h1>
             <div className='max-w-[1320px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                 {
                     products.map(product => <ProductCard key={product._id} product={product}></ProductCard>)

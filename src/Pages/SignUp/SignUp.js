@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
@@ -16,7 +16,7 @@ const SignUp = () => {
     const { createUser, updateUserProfile, providerSignIn } = useContext(AuthContext);
     const [registerError, setRegisterError] = useState('');
     const navigate = useNavigate();
-    // const provider = new GoogleAuthProvider();
+    const provider = new GoogleAuthProvider();
 
     if (token) {
         navigate('/');
@@ -50,7 +50,7 @@ const SignUp = () => {
 
         const saveUserToDatabase = (email, name, role) => {
             const user = { email, name, role, isVerified: false };
-            fetch('https://wiz-resale-server.vercel.app/users', {
+            fetch(`https://wiz-resale-server.vercel.app/users`, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -66,35 +66,42 @@ const SignUp = () => {
         }
 
     }
-    // const handleGoogleSignIn = () => {
-    //     providerSignIn(provider)
-    //         .then(result => {
-    //             const user = result.user;
-    //             console.log(user);
-    //             saveUserToDatabase(user?.email, user?.displayName)
+    const handleGoogleSignIn = () => {
+        providerSignIn(provider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                saveUserToDatabase(user?.email, user?.displayName)
 
-    //         })
-    //         .catch(err => {
-    //             console.error(err)
-    //             setRegisterError(`${err.message}, Please try again`);
-    //         })
-    //     const saveUserToDatabase = (email, name) => {
-    //         const user = { email, name, role: "buyer", isVerified: false };
-    //         fetch('https://wiz-resale-server.vercel.app/users', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'content-type': 'application/json'
-    //             },
-    //             body: JSON.stringify(user)
-    //         })
-    //             .then(res => res.json())
-    //             .then(data => {
-    //                 if (data.acknowledged) {
-    //                     setCreateEmail(email);
-    //                 }
-    //             })
-    //     }
-    // }
+            })
+            .catch(err => {
+                console.error(err)
+                setRegisterError(`${err.message}, Please try again`);
+            })
+        const saveUserToDatabase = (email, name) => {
+            const user = { email, name, role: "buyer", isVerified: false };
+            fetch('https://wiz-resale-server.vercel.app/users', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.acknowledged) {
+                        setCreateEmail(email);
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: data.message,
+                            timer: 1500
+                        })
+                    }
+                })
+        }
+    }
 
     return (
         <div className='flex justify-center items-center'>
@@ -138,7 +145,10 @@ const SignUp = () => {
                     {registerError && <p className='text-red-400'>{registerError}</p>}
                 </form>
                 <p>Already have an account <Link className='text-primary' to="/signin">Please Sign In</Link></p>
+                <div className="divider">OR</div>
+                <button className='btn btn-accent' onClick={handleGoogleSignIn}><FcGoogle className='mr-[8px]'></FcGoogle> Sign In with Google</button>
             </div>
+
         </div>
     );
 };

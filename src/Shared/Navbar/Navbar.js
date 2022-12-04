@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
-import logoImg from '../../assets/images/wiz-resale-logo.png';
+import logo from '../../assets/images/wiz-resale-logo.png';
 
 
 
@@ -31,7 +31,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link to='/' className="btn btn-ghost normal-case text-xl">
-                        <img className='w-[200px]' src={logoImg} alt="Wiz Resale" />
+                        <img className='w-[200px]' src={logo} alt="Wiz Resale" />
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
